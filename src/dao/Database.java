@@ -6,6 +6,13 @@ import java.sql.SQLException;
 
 public class Database {
 	public static Connection getConnection() {
+
+		/**
+		 * Query in SQL Workbench
+		 * CREATE TABLE `messages` ( `msg_id` int(11) NOT NULL AUTO_INCREMENT, `message`
+		 * text, PRIMARY KEY (`msg_id`) )
+		 */
+
 		Connection conn = null;
 
 		String url = "jdbc:mysql://localhost:3306/sqlTest";
@@ -14,9 +21,8 @@ public class Database {
 
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			
+
 			return DriverManager.getConnection(url, username, password);
-			
 
 		} catch (SQLException | ClassNotFoundException e) {
 			throw new Error("Error", e);
